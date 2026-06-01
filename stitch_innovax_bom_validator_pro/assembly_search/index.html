@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Assembly Search - Innovax BOM Validator Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config Verbatim -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#727782",
+                    "surface-container-low": "#f3f4f6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed-variant": "#743500",
+                    "secondary": "#50616c",
+                    "tertiary-container": "#8e4302",
+                    "tertiary": "#6b3000",
+                    "surface-container-high": "#e7e8ea",
+                    "error": "#ba1a1a",
+                    "inverse-on-surface": "#f0f1f3",
+                    "on-secondary-fixed-variant": "#384953",
+                    "inverse-surface": "#2e3132",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#546570",
+                    "on-background": "#191c1e",
+                    "on-primary-container": "#b1d1ff",
+                    "on-primary-fixed": "#001c38",
+                    "on-error": "#ffffff",
+                    "primary-fixed": "#d3e4ff",
+                    "on-surface-variant": "#414750",
+                    "surface-tint": "#1260a5",
+                    "surface-dim": "#d9dadc",
+                    "tertiary-fixed-dim": "#ffb68a",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#edeef0",
+                    "on-surface": "#191c1e",
+                    "surface-bright": "#f8f9fb",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed-variant": "#004881",
+                    "primary": "#004277",
+                    "surface-variant": "#e1e2e4",
+                    "secondary-fixed-dim": "#b7c9d6",
+                    "on-secondary-fixed": "#0c1d27",
+                    "primary-fixed-dim": "#a2c9ff",
+                    "background": "#f8f9fb",
+                    "surface-container-highest": "#e1e2e4",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#d3e5f2",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#321300",
+                    "tertiary-fixed": "#ffdbc8",
+                    "secondary-container": "#d0e2ef",
+                    "outline-variant": "#c1c7d2",
+                    "on-tertiary-container": "#ffc29d",
+                    "surface": "#f8f9fb",
+                    "primary-container": "#005a9e",
+                    "inverse-primary": "#a2c9ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "base": "4px",
+                    "table-cell-padding": "8px 12px",
+                    "gutter": "16px",
+                    "margin-page": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "table-header": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-mono": ["JetBrains Mono"],
+                    "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "table-header": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-mono": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #c1c7d2; border-radius: 2px; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col lg:flex-row overflow-hidden">
+<!-- Navigation Drawer (Desktop) -->
+<aside class="hidden lg:flex flex-col gap-base py-4 bg-surface-container border-r border-outline-variant w-[240px] shrink-0">
+<div class="px-gutter mb-8">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">SYSTEM MODULES</span>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-gutter py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-gutter py-3 bg-primary text-on-primary font-semibold border-l-4 border-surface-tint" href="#">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+<span class="font-body-md text-body-md">BOM Explorer</span>
+</a>
+<a class="flex items-center gap-3 px-gutter py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="fact_check">fact_check</span>
+<span class="font-body-md text-body-md">Validations</span>
+</a>
+<a class="flex items-center gap-3 px-gutter py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="compare">compare</span>
+<span class="font-body-md text-body-md">Comparator</span>
+</a>
+<a class="flex items-center gap-3 px-gutter py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span class="font-body-md text-body-md">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-gutter py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-body-md text-body-md">History</span>
+</a>
+<a class="flex items-center gap-3 px-gutter py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all duration-200 mt-auto" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col min-w-0 h-screen relative pb-16 lg:pb-0">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-margin-page h-16 w-full bg-surface-container-lowest border-b border-outline-variant z-10">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer lg:hidden" data-icon="menu">menu</span>
+<h1 class="font-display-lg text-display-lg font-black tracking-tight text-on-surface uppercase">Innovax BOM Validator Pro</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-4">
+<span class="font-label-mono text-label-mono text-primary border-b-2 border-primary cursor-pointer px-1">Assembly Search</span>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User Profile" data-alt="A professional headshot of a middle-aged male engineer in a clean, brightly lit corporate office environment. He is wearing a crisp white shirt and subtle glasses, looking directly at the camera with a confident and helpful expression. The background is a soft-focus office with minimalist white furniture and cool blue accent lighting, emphasizing a corporate and technological aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLddAK5nNQasu7g1YFDvydOsSXz5J8qP56Q1WtQbMojoJfQb45qP_uLVLgObvwCNU7s5EkNWhNcaN7N1usq20Ggs6Be6M906LLygw976_t7O1IqIvu-RM0U7HeYuC-AxkPWE9-9MoGCXI_Uy2JV5I3m-rXQr2YWIWOKQpNuLvhqJOglmElyZSg9dELnNNjergIaLif10roppGhe7QXRPxLvQeV-75r5C4_LENd6wKa32RlYg5J6SRVPXn9aIi9ZCB9NBJO-SEo0u8c"/>
+</div>
+</div>
+</header>
+<!-- Search & Filtering Section -->
+<section class="p-gutter lg:p-margin-page space-y-gutter bg-surface-bright border-b border-outline-variant">
+<div class="flex flex-col lg:flex-row gap-4 items-end">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 flex-1 w-full">
+<div class="space-y-1">
+<label class="font-table-header text-table-header text-on-surface-variant uppercase">Part Number</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border border-outline-variant px-3 py-2 text-body-md focus:outline-none focus:border-primary transition-colors" placeholder="e.g. INV-5400-ASM" type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-outline text-sm" data-icon="search">search</span>
+</div>
+</div>
+<div class="space-y-1">
+<label class="font-table-header text-table-header text-on-surface-variant uppercase">Description</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant px-3 py-2 text-body-md focus:outline-none focus:border-primary transition-colors" placeholder="Enter keywords..." type="text"/>
+</div>
+<div class="space-y-1">
+<label class="font-table-header text-table-header text-on-surface-variant uppercase">Revision</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant px-3 py-2 text-body-md focus:outline-none focus:border-primary transition-colors appearance-none">
+<option>All Revisions</option>
+<option>Rev A</option>
+<option>Rev B</option>
+<option>Latest</option>
+</select>
+</div>
+</div>
+<button class="bg-primary text-on-primary px-8 py-2.5 font-semibold transition-all hover:bg-primary-container active:scale-95 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="manage_search">manage_search</span>
+                    EXECUTE SEARCH
+                </button>
+</div>
+<!-- Filter Chips -->
+<div class="flex flex-wrap gap-2 pt-2">
+<button class="flex items-center gap-2 px-3 py-1 bg-surface-container-high border border-outline-variant hover:bg-surface-container-highest transition-colors rounded-none">
+<span class="material-symbols-outlined text-[16px]" data-icon="factory">factory</span>
+<span class="font-body-sm text-body-sm">Manufactured</span>
+</button>
+<button class="flex items-center gap-2 px-3 py-1 bg-surface-container-high border border-outline-variant hover:bg-surface-container-highest transition-colors rounded-none">
+<span class="material-symbols-outlined text-[16px]" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-body-sm text-body-sm">Purchased</span>
+</button>
+<button class="flex items-center gap-2 px-3 py-1 bg-error-container text-on-error-container border border-error/30 hover:bg-error transition-colors hover:text-white rounded-none">
+<span class="material-symbols-outlined text-[16px]" data-icon="info_outline">help_outline</span>
+<span class="font-body-sm text-body-sm">Missing Info</span>
+</button>
+<button class="flex items-center gap-2 px-3 py-1 bg-error text-on-error border border-error hover:opacity-90 transition-colors rounded-none">
+<span class="material-symbols-outlined text-[16px]" data-icon="error_outline">error_outline</span>
+<span class="font-body-sm text-body-sm">Errors</span>
+</button>
+<div class="h-6 w-px bg-outline-variant mx-2"></div>
+<button class="text-primary font-body-sm text-body-sm flex items-center gap-1 hover:underline">
+                    Clear All Filters
+                </button>
+</div>
+</section>
+<!-- Results Canvas (Bento/Card Layout) -->
+<div class="flex-1 overflow-y-auto p-gutter lg:p-margin-page space-y-4 custom-scrollbar">
+<div class="flex justify-between items-center mb-2">
+<span class="font-table-header text-table-header text-outline uppercase tracking-wider">Results (2 Assemblies Found)</span>
+<div class="flex items-center gap-2">
+<button class="p-1 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-outline" data-icon="view_list">view_list</span></button>
+<button class="p-1 bg-primary-fixed text-on-primary-fixed transition-colors"><span class="material-symbols-outlined" data-icon="grid_view">grid_view</span></button>
+</div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-gutter">
+<!-- Result Card 1 -->
+<div class="group bg-surface-container-lowest border border-outline-variant hover:border-primary transition-all duration-200 flex flex-col">
+<div class="p-4 flex gap-4">
+<div class="w-32 h-32 bg-surface-container shrink-0 border border-outline-variant overflow-hidden">
+<img alt="Release Linkage Assembly" data-alt="A highly technical close-up photograph of a precision-engineered mechanical linkage assembly. The parts are made of brushed stainless steel with intricate pivot points and small industrial bolts. The lighting is clinical and sharp, casting minimal shadows against a neutral gray background. The overall aesthetic is one of high-end manufacturing and engineering reliability, consistent with industrial product lifecycle management documentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4PNN1yW2T_LACftooii-R_SJBOuyNNG7MpoYgxtCcR5IKF7mNxxkJvLaoO8NzAgUAQiCN1ZgPSejeJrUYlUhZvzvBRgWECqdY3CrXeBmxuanP75h2myK3tso1z_D_7sM25ccqNsa8WaWc-fZJ1e6KJDnnpPFnok-QWCgxYK4V-MnVPBZWm5PxfoKm1fgv12GzWKAWsAB1bs6L9s3DKO7Wf-F8khJzn2MeHz8fVXonuJaMoR3yZ1EJew5-uN7blCl1neMoPcNqrDRV"/>
+</div>
+<div class="flex-1 space-y-2 min-w-0">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface truncate">Release Linkage</h3>
+<p class="font-label-mono text-label-mono text-primary">INV-5400-ASM | Rev B</p>
+</div>
+<div class="px-2 py-1 bg-green-100 text-green-800 text-[10px] font-bold uppercase border border-green-200 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                    Liberado
+                                </div>
+</div>
+<div class="grid grid-cols-2 gap-4 text-on-surface-variant">
+<div>
+<p class="text-[10px] uppercase font-bold text-outline">Last Modified</p>
+<p class="font-body-sm text-body-sm">29/05/2024</p>
+</div>
+<div>
+<p class="text-[10px] uppercase font-bold text-outline">Component Count</p>
+<p class="font-body-sm text-body-sm">42 Items</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Actions Footer -->
+<div class="mt-auto border-t border-outline-variant bg-surface-container-low flex divide-x divide-outline-variant">
+<button class="flex-1 py-3 px-2 flex items-center justify-center gap-2 font-table-header text-table-header text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors uppercase">
+<span class="material-symbols-outlined text-[18px]" data-icon="analytics">analytics</span> Analyze
+                        </button>
+<button class="flex-1 py-3 px-2 flex items-center justify-center gap-2 font-table-header text-table-header text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors uppercase">
+<span class="material-symbols-outlined text-[18px]" data-icon="account_tree">account_tree</span> View BOM
+                        </button>
+<button class="flex-1 py-3 px-2 flex items-center justify-center gap-2 font-table-header text-table-header text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors uppercase">
+<span class="material-symbols-outlined text-[18px]" data-icon="description">description</span> Report
+                        </button>
+</div>
+</div>
+<!-- Result Card 2 -->
+<div class="group bg-surface-container-lowest border border-outline-variant hover:border-error transition-all duration-200 flex flex-col">
+<div class="p-4 flex gap-4">
+<div class="w-32 h-32 bg-surface-container shrink-0 border border-outline-variant overflow-hidden">
+<img alt="Hydraulic Gripper Assembly" data-alt="A detailed digital 3D rendering of an industrial hydraulic gripper mechanism. The component features matte black casings, chrome-finished pistons, and orange hydraulic warning labels. The scene is presented from a three-quarter perspective under studio lighting that highlights the textures of the metal and composite materials. The background is a clean, dark blue gradient that emphasizes the technical complexity and precision of the industrial tool." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQm0bqUW6XVn1MJnPH6Qj15Un90TBQwoH2RTUiB76ImWraDcarEmUeZk2n7OyU-GciMxsNw2q8qfFVTAzIipnhtW8YPG0m6YZNnaXiFZ9hBZJXT8ctSdJ0bXbA-gt6T0pFiEKWdmCKWGIZWG1w53FC-Ee0C7ZbfgRIiLZ0r1O5768N0AUEoRnpkwRLbgZ0sgL1pSPPluE3ABTADLEtxkGiMBaW_Ug_ftn3Tx_pEC1Vmuep6YyspWaQfPicpDmHIRnf7VbO99bt8Yta"/>
+</div>
+<div class="flex-1 space-y-2 min-w-0">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface truncate">Hydraulic Gripper</h3>
+<p class="font-label-mono text-label-mono text-primary">INV-3250-ASM | Rev A</p>
+</div>
+<div class="px-2 py-1 bg-surface-container-high text-outline text-[10px] font-bold uppercase border border-outline-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="cancel" data-weight="fill" style="font-variation-settings: 'FILL' 1;">cancel</span>
+                                    Obsoleto
+                                </div>
+</div>
+<div class="grid grid-cols-2 gap-4 text-on-surface-variant">
+<div>
+<p class="text-[10px] uppercase font-bold text-outline">Last Modified</p>
+<p class="font-body-sm text-body-sm">15/04/2024</p>
+</div>
+<div>
+<p class="text-[10px] uppercase font-bold text-outline">Critical Errors</p>
+<p class="font-body-sm text-body-sm text-error font-bold">3 Detected</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Actions Footer -->
+<div class="mt-auto border-t border-outline-variant bg-surface-container-low flex divide-x divide-outline-variant">
+<button class="flex-1 py-3 px-2 flex items-center justify-center gap-2 font-table-header text-table-header text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors uppercase">
+<span class="material-symbols-outlined text-[18px]" data-icon="analytics">analytics</span> Analyze
+                        </button>
+<button class="flex-1 py-3 px-2 flex items-center justify-center gap-2 font-table-header text-table-header text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors uppercase">
+<span class="material-symbols-outlined text-[18px]" data-icon="account_tree">account_tree</span> View BOM
+                        </button>
+<button class="flex-1 py-3 px-2 flex items-center justify-center gap-2 font-table-header text-table-header text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors uppercase">
+<span class="material-symbols-outlined text-[18px]" data-icon="description">description</span> Report
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- FAB (Add New Assembly) -->
+<button class="fixed right-margin-page bottom-24 lg:bottom-margin-page w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-105 active:scale-95 group z-50">
+<span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
+<span class="absolute right-16 bg-on-background text-background px-3 py-1 text-xs font-bold uppercase whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">New Assembly</span>
+</button>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="lg:hidden flex justify-around items-center h-16 px-4 pb-safe bg-surface-container-lowest border-t border-outline-variant shadow-lg fixed bottom-0 w-full z-50">
+<div class="flex flex-col items-center justify-center text-secondary p-2">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-sm text-body-sm">Dashboard</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary font-bold bg-secondary-container/20 p-2 rounded-xl">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-body-sm text-body-sm">Search</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary p-2">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-body-sm text-body-sm">BOM</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary p-2">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-body-sm text-body-sm">Reports</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary p-2">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+<span class="font-body-sm text-body-sm">Admin</span>
+</div>
+</nav>
+</main>
+<script>
+        // Micro-interactions
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.classList.add('scale-95');
+                setTimeout(() => this.classList.remove('scale-95'), 100);
+            });
+        });
+
+        // Search Input focus effect
+        const inputs = document.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('ring-1', 'ring-primary');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.classList.remove('ring-1', 'ring-primary');
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Innovax BOM Validator Pro - Results</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#727782",
+                        "surface-container-low": "#f3f4f6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#743500",
+                        "secondary": "#50616c",
+                        "tertiary-container": "#8e4302",
+                        "tertiary": "#6b3000",
+                        "surface-container-high": "#e7e8ea",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#f0f1f3",
+                        "on-secondary-fixed-variant": "#384953",
+                        "inverse-surface": "#2e3132",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#546570",
+                        "on-background": "#191c1e",
+                        "on-primary-container": "#b1d1ff",
+                        "on-primary-fixed": "#001c38",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#d3e4ff",
+                        "on-surface-variant": "#414750",
+                        "surface-tint": "#1260a5",
+                        "surface-dim": "#d9dadc",
+                        "tertiary-fixed-dim": "#ffb68a",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#edeef0",
+                        "on-surface": "#191c1e",
+                        "surface-bright": "#f8f9fb",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#004881",
+                        "primary": "#004277",
+                        "surface-variant": "#e1e2e4",
+                        "secondary-fixed-dim": "#b7c9d6",
+                        "on-secondary-fixed": "#0c1d27",
+                        "primary-fixed-dim": "#a2c9ff",
+                        "background": "#f8f9fb",
+                        "surface-container-highest": "#e1e2e4",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#d3e5f2",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#321300",
+                        "tertiary-fixed": "#ffdbc8",
+                        "secondary-container": "#d0e2ef",
+                        "outline-variant": "#c1c7d2",
+                        "on-tertiary-container": "#ffc29d",
+                        "surface": "#f8f9fb",
+                        "primary-container": "#005a9e",
+                        "inverse-primary": "#a2c9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "table-cell-padding": "8px 12px",
+                        "gutter": "16px",
+                        "margin-page": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "table-header": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-mono": ["JetBrains Mono"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "table-header": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-mono": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #f8f9fb;
+        }
+        .pass-text { color: #15803d; }
+        .warn-text { color: #b45309; }
+        .fail-text { color: #b91c1c; }
+        .pass-bg { background-color: #dcfce7; }
+        .warn-bg { background-color: #fef3c7; }
+        .fail-bg { background-color: #fee2e2; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col min-h-screen text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline flex justify-between items-center px-margin-page h-16 w-full fixed top-0 z-40">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-high transition-colors active:opacity-80 scale-95 duration-100">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+</button>
+<h1 class="font-display-lg text-display-lg font-black tracking-tight text-on-surface uppercase">Innovax BOM Validator Pro</h1>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-6 items-center h-full">
+<a class="font-label-mono text-label-mono text-secondary hover:bg-surface-container-high px-3 py-2 transition-colors" href="#">DASHBOARD</a>
+<a class="font-label-mono text-label-mono text-primary border-b-2 border-primary px-3 py-2" href="#">VALIDATIONS</a>
+<a class="font-label-mono text-label-mono text-secondary hover:bg-surface-container-high px-3 py-2 transition-colors" href="#">HISTORY</a>
+</nav>
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold overflow-hidden border border-outline-variant">
+<img alt="User Profile Photo" data-alt="A professional headshot of a senior manufacturing engineer in a clean, high-tech industrial office environment. The lighting is bright and professional, typical of a modern corporate setting. He is wearing a subtle charcoal suit, conveying authority and technical expertise. The background is a slightly blurred architectural office with soft blue and white tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkuYTIV_7kcoJLLLFaWQgIPXOBgu6514ORtRq9eCJ-BkKyotml9FfHVG7ZQKAhFj_kKKeFB3kqJtkfw5Puku5cHXRm-6OjZO_M5sq_Q040Kab22JIf_vXCmyTEoVDrPxIUWOhiuLQhUtKUR_2gxwRgzXyjpq78XZUgepcFwHUMAPx283tPbkgu4UZove9acXm76epFu9ZkF2VZhRG1C9qL04wL8yKRx6uOn7umPl6VPewsHKm7VO5I5UokL_hFKDwy8LTV1qZge6Vp"/>
+</div>
+</div>
+</header>
+<!-- Side Navigation (Web) -->
+<aside class="hidden lg:flex flex-col gap-base py-4 bg-surface-container border-r border-outline-variant fixed left-0 top-16 bottom-0 w-[240px] z-30">
+<div class="px-6 py-2 mb-2">
+<span class="font-table-header text-table-header uppercase text-outline">SYSTEM MODULES</span>
+</div>
+<nav class="flex flex-col">
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+<span class="font-body-md text-body-md">BOM Explorer</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 bg-primary text-on-primary font-semibold border-l-4 border-surface-tint transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="fact_check" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+<span class="font-body-md text-body-md">Validations</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="compare">compare</span>
+<span class="font-body-md text-body-md">Comparator</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span class="font-body-md text-body-md">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-body-md text-body-md">History</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 lg:ml-[240px] mt-16 p-6 mb-16 lg:mb-0 max-w-[1440px]">
+<!-- Header & Breadcrumbs -->
+<div class="mb-6">
+<div class="flex items-center gap-2 text-outline font-label-mono text-label-mono mb-2">
+<span>PROJECTS</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span>ASSEMBLIES</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-bold">INV-5400-ASM</span>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<h2 class="font-headline-md text-headline-md text-on-surface flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="fact_check">fact_check</span>
+                    Validation Results: INV-5400-ASM
+                </h2>
+<div class="flex gap-2">
+<button class="flex items-center gap-2 bg-surface-container-lowest border border-outline-variant px-4 py-2 font-body-md text-body-md hover:bg-surface-container-high transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined" data-icon="refresh">refresh</span>
+                        Re-validate
+                    </button>
+<button class="flex items-center gap-2 bg-primary text-on-primary px-4 py-2 font-body-md text-body-md hover:opacity-90 transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+                        View Full Report
+                    </button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Summary Card -->
+<section class="md:col-span-12 lg:col-span-4 flex flex-col">
+<div class="bg-surface-container-lowest border border-outline-variant p-6 h-full flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<span class="font-table-header text-table-header uppercase text-outline tracking-wider">Validation Summary</span>
+<span class="warn-bg warn-text px-3 py-1 font-label-mono text-label-mono font-bold border border-tertiary-container/20">WARN</span>
+</div>
+<div class="flex-1 flex flex-col justify-center items-center py-6">
+<div class="relative w-40 h-40 flex items-center justify-center">
+<!-- Simple Circular Progress Visualization -->
+<svg class="w-full h-full transform -rotate-90">
+<circle cx="80" cy="80" fill="transparent" r="70" stroke="#f3f4f6" stroke-width="12"></circle>
+<circle cx="80" cy="80" fill="transparent" r="70" stroke="#1260a5" stroke-dasharray="440" stroke-dashoffset="110" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-4xl font-bold text-on-surface">92%</span>
+<span class="text-[10px] font-table-header text-outline uppercase tracking-tight">Compliance</span>
+</div>
+</div>
+<div class="mt-6 text-center">
+<p class="font-body-md text-body-md text-on-surface-variant">System found critical missing specifications in sub-assemblies.</p>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 mt-auto pt-6 border-t border-outline-variant">
+<div class="text-center">
+<span class="block font-label-mono text-label-mono text-outline">TOTAL</span>
+<span class="block font-headline-md text-headline-md">12</span>
+</div>
+<div class="text-center">
+<span class="block font-label-mono text-label-mono pass-text">PASS</span>
+<span class="block font-headline-md text-headline-md">9</span>
+</div>
+<div class="text-center">
+<span class="block font-label-mono text-label-mono warn-text">WARN</span>
+<span class="block font-headline-md text-headline-md">2</span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-dashed border-outline-variant">
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm fail-text flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="error">error</span>
+                                1 CRITICAL FAIL
+                            </span>
+<span class="font-body-sm text-body-sm text-outline">ID: V-9032-B</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Detailed Rules List -->
+<section class="md:col-span-12 lg:col-span-8 flex flex-col">
+<div class="bg-surface-container-lowest border border-outline-variant h-full overflow-hidden flex flex-col">
+<div class="p-4 border-b border-outline-variant bg-surface-container-low flex justify-between items-center">
+<h3 class="font-table-header text-table-header uppercase tracking-wider text-on-surface-variant">Validation Rule Analysis</h3>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 font-label-mono text-label-mono">
+<span class="w-2 h-2 rounded-full bg-green-600"></span> <span>PASS</span>
+<span class="w-2 h-2 rounded-full bg-amber-500 ml-2"></span> <span>WARN</span>
+<span class="w-2 h-2 rounded-full bg-red-600 ml-2"></span> <span>FAIL</span>
+</div>
+</div>
+</div>
+<div class="flex-1 overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container sticky top-0 z-10">
+<tr>
+<th class="p-table-cell-padding font-table-header text-table-header text-on-surface-variant border-b border-outline-variant w-12">#</th>
+<th class="p-table-cell-padding font-table-header text-table-header text-on-surface-variant border-b border-outline-variant">Validation Rule</th>
+<th class="p-table-cell-padding font-table-header text-table-header text-on-surface-variant border-b border-outline-variant">System Feedback</th>
+<th class="p-table-cell-padding font-table-header text-table-header text-on-surface-variant border-b border-outline-variant text-right">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Rule 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="p-table-cell-padding font-label-mono text-label-mono text-outline">01</td>
+<td class="p-table-cell-padding">
+<div class="font-body-md text-body-md font-semibold">Structure Validation</div>
+<div class="font-body-sm text-body-sm text-outline">Checks for parent-child relationship integrity</div>
+</td>
+<td class="p-table-cell-padding font-body-sm text-body-sm text-on-surface-variant">Hierarchy consistent across all nodes.</td>
+<td class="p-table-cell-padding text-right">
+<span class="inline-flex items-center gap-1 pass-text font-label-mono text-label-mono font-bold">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle">check_circle</span>
+                                            PASS
+                                        </span>
+</td>
+</tr>
+<!-- Rule 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="p-table-cell-padding font-label-mono text-label-mono text-outline">02</td>
+<td class="p-table-cell-padding">
+<div class="font-body-md text-body-md font-semibold">Duplicate Components</div>
+<div class="font-body-sm text-body-sm text-outline">Verifies unique identifiers for sub-parts</div>
+</td>
+<td class="p-table-cell-padding font-body-sm text-body-sm text-on-surface-variant">
+<span class="warn-text font-semibold">2 duplicates found in Level 3</span> (INV-P-022)
+                                    </td>
+<td class="p-table-cell-padding text-right">
+<span class="inline-flex items-center gap-1 warn-text font-label-mono text-label-mono font-bold">
+<span class="material-symbols-outlined text-[16px]" data-icon="warning">warning</span>
+                                            WARN
+                                        </span>
+</td>
+</tr>
+<!-- Rule 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="p-table-cell-padding font-label-mono text-label-mono text-outline">03</td>
+<td class="p-table-cell-padding">
+<div class="font-body-md text-body-md font-semibold">Description Format</div>
+<div class="font-body-sm text-body-sm text-outline">Validates naming convention compliance</div>
+</td>
+<td class="p-table-cell-padding font-body-sm text-body-sm text-on-surface-variant">Naming standard ISO-9001 followed.</td>
+<td class="p-table-cell-padding text-right">
+<span class="inline-flex items-center gap-1 pass-text font-label-mono text-label-mono font-bold">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle">check_circle</span>
+                                            PASS
+                                        </span>
+</td>
+</tr>
+<!-- Rule 4 -->
+<tr class="hover:bg-surface-container-low transition-colors group bg-error/5">
+<td class="p-table-cell-padding font-label-mono text-label-mono text-outline">04</td>
+<td class="p-table-cell-padding">
+<div class="font-body-md text-body-md font-semibold">Material Validation</div>
+<div class="font-body-sm text-body-sm text-outline">Ensures material specs match ERP records</div>
+</td>
+<td class="p-table-cell-padding font-body-sm text-body-sm text-on-surface-variant">
+<span class="fail-text font-semibold">Part INV-5406 missing material spec</span>
+</td>
+<td class="p-table-cell-padding text-right">
+<span class="inline-flex items-center gap-1 fail-text font-label-mono text-label-mono font-bold">
+<span class="material-symbols-outlined text-[16px]" data-icon="cancel">cancel</span>
+                                            FAIL
+                                        </span>
+</td>
+</tr>
+<!-- Rule 5 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="p-table-cell-padding font-label-mono text-label-mono text-outline">05</td>
+<td class="p-table-cell-padding">
+<div class="font-body-md text-body-md font-semibold">ERP Compatibility</div>
+<div class="font-body-sm text-body-sm text-outline">Synchronization check with SAP engine</div>
+</td>
+<td class="p-table-cell-padding font-body-sm text-body-sm text-on-surface-variant">Direct handshake successful.</td>
+<td class="p-table-cell-padding text-right">
+<span class="inline-flex items-center gap-1 pass-text font-label-mono text-label-mono font-bold">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle">check_circle</span>
+                                            PASS
+                                        </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</div>
+<!-- System Visualization Area (Decorative) -->
+<div class="mt-gutter">
+<div class="relative w-full h-[240px] border border-outline-variant overflow-hidden">
+<img alt="Industrial Manufacturing Background" class="w-full h-full object-cover filter grayscale opacity-20" data-alt="A high-contrast, professional cinematic shot of a clean, futuristic automated factory floor. Robotic arms are precisely positioned in a sequence, illuminated by cool blue and crisp white LED laboratory lighting. The atmosphere is quiet, technological, and efficient. The style is minimalist with a focus on geometric precision and industrial engineering excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeNF1pSMHKfZ6c3fTa9nwngB-K_Cbs71xOWE83IEh3-h5QVvV3IRtNmhpdLExZlNpSm1UzXkZkeIEgqXS5BXUQ5KD9DpnYSSW402sACWHK6NCsG0NaSEyiIBrW81YIrzYnuPmF4xoK93HcbywO0eXBR73bpVgq0aMsSWcnPlvUmPWAhpNgVwd10k51iM4gleIUS041KkdGWCUqqgLVxXaGSfq90cd7WbncV-djPk5BjaW32OobF5jbZz6qXa9zxn6x2Jf5tGuT-wTm"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background"></div>
+<div class="absolute inset-0 flex flex-col justify-center p-12">
+<h4 class="font-headline-md text-headline-md text-primary opacity-60 mb-2">Technical Analysis Environment</h4>
+<p class="font-body-md text-body-md text-outline max-w-md">Engine Version: 4.2.0-PRO<br/>Last Synced with Central ERP: 4 minutes ago<br/>Validator Node: US-EAST-01</p>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="lg:hidden flex justify-around items-center h-16 px-4 pb-safe bg-surface-container-lowest border-t border-outline-variant shadow-lg fixed bottom-0 w-full z-50 rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-secondary p-2 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-sm text-body-sm">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary p-2 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-body-sm text-body-sm">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold bg-secondary-container/20 p-2 rounded-xl active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-body-sm text-body-sm">BOM</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary p-2 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-body-sm text-body-sm">Reports</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary p-2 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+<span class="font-body-sm text-body-sm">Admin</span>
+</a>
+</nav>
+<script>
+        // Simple hover interaction for table rows to enhance "High performance tool" feel
+        document.querySelectorAll('tbody tr').forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.style.cursor = 'pointer';
+            });
+        });
+    </script>
+</body></html>

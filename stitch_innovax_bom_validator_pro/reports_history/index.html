@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Reports &amp; History | Innovax BOM Validator Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #c1c7d2;
+            border-radius: 10px;
+        }
+        .active-tab-indicator {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            height: 2px;
+            background-color: #004277;
+            transition: all 0.3s ease;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline": "#727782",
+                      "surface-container-low": "#f3f4f6",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-fixed-variant": "#743500",
+                      "secondary": "#50616c",
+                      "tertiary-container": "#8e4302",
+                      "tertiary": "#6b3000",
+                      "surface-container-high": "#e7e8ea",
+                      "error": "#ba1a1a",
+                      "inverse-on-surface": "#f0f1f3",
+                      "on-secondary-fixed-variant": "#384953",
+                      "inverse-surface": "#2e3132",
+                      "on-error-container": "#93000a",
+                      "on-secondary-container": "#546570",
+                      "on-background": "#191c1e",
+                      "on-primary-container": "#b1d1ff",
+                      "on-primary-fixed": "#001c38",
+                      "on-error": "#ffffff",
+                      "primary-fixed": "#d3e4ff",
+                      "on-surface-variant": "#414750",
+                      "surface-tint": "#1260a5",
+                      "surface-dim": "#d9dadc",
+                      "tertiary-fixed-dim": "#ffb68a",
+                      "on-secondary": "#ffffff",
+                      "surface-container": "#edeef0",
+                      "on-surface": "#191c1e",
+                      "surface-bright": "#f8f9fb",
+                      "on-primary": "#ffffff",
+                      "on-primary-fixed-variant": "#004881",
+                      "primary": "#004277",
+                      "surface-variant": "#e1e2e4",
+                      "secondary-fixed-dim": "#b7c9d6",
+                      "on-secondary-fixed": "#0c1d27",
+                      "primary-fixed-dim": "#a2c9ff",
+                      "background": "#f8f9fb",
+                      "surface-container-highest": "#e1e2e4",
+                      "on-tertiary": "#ffffff",
+                      "secondary-fixed": "#d3e5f2",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed": "#321300",
+                      "tertiary-fixed": "#ffdbc8",
+                      "secondary-container": "#d0e2ef",
+                      "outline-variant": "#c1c7d2",
+                      "on-tertiary-container": "#ffc29d",
+                      "surface": "#f8f9fb",
+                      "primary-container": "#005a9e",
+                      "inverse-primary": "#a2c9ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "base": "4px",
+                      "table-cell-padding": "8px 12px",
+                      "gutter": "16px",
+                      "margin-page": "24px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Inter"],
+                      "table-header": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "body-md": ["Inter"],
+                      "label-mono": ["JetBrains Mono"],
+                      "display-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "table-header": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                      "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "label-mono": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md overflow-hidden h-screen flex">
+<!-- Navigation Drawer (Desktop) -->
+<aside class="hidden lg:flex flex-col gap-base py-4 bg-surface-container border-r border-outline-variant w-[240px] h-full transition-all duration-200 ease-in-out">
+<div class="px-margin-page mb-6">
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface">SYSTEM MODULES</h2>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+<span class="font-body-md text-body-md">BOM Explorer</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="fact_check">fact_check</span>
+<span class="font-body-md text-body-md">Validations</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="compare">compare</span>
+<span class="font-body-md text-body-md">Comparator</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 bg-primary text-on-primary font-semibold border-l-4 border-surface-tint" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span class="font-body-md text-body-md">Reports</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-body-md text-body-md">History</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</nav>
+</aside>
+<div class="flex-1 flex flex-col h-full overflow-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface-container-lowest text-primary flex justify-between items-center px-margin-page h-16 w-full border-b border-outline-variant z-10">
+<div class="flex items-center gap-4">
+<button class="lg:hidden p-2 hover:bg-surface-container-high rounded-full transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<span class="font-display-lg text-display-lg font-black tracking-tight text-on-surface uppercase">Innovax BOM Validator Pro</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-8">
+<a class="font-label-mono text-label-mono text-secondary hover:bg-surface-container-high px-2 py-1 transition-colors" href="#">ANALYTICS</a>
+<a class="font-label-mono text-label-mono text-primary border-b-2 border-primary px-2 py-1 transition-colors" href="#">REPORTS</a>
+<a class="font-label-mono text-label-mono text-secondary hover:bg-surface-container-high px-2 py-1 transition-colors" href="#">DATABASE</a>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant flex items-center justify-center">
+<img alt="User Profile Photo" class="w-full h-full object-cover" data-alt="A professional headshot of a senior manufacturing engineer in a clean, modern office environment. The lighting is bright and technical, with a shallow depth of field focusing on the friendly yet serious expression. The color palette is composed of cool grays and corporate blues, reflecting an atmosphere of expertise and precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFjhROBDgxMDA-RrYJvh8343GsNtNaGXnZuD9eGCJ6ZH16cGYbhzdp5E7ytZjMscSUGGd1YhGq7F56-17OO6SfAE3lMHEi7lzBONo1SG9T3VByYMkMG0kX-iyPMk6Kw_GMTKCrT8r-lPqu21ZuQ0ZwHN3d7iHAo_d0qDIdKDGPiPl3rz50D5KbDIuQghQJJJVtneeQ0F8sHR-Ud1ZKdTffup2loJqhjqDkKBeDeahxqFwB7-UIHhww8BXJPOh1fAyQaLXeqy5zsvou"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 overflow-y-auto custom-scrollbar bg-background p-gutter md:p-margin-page flex flex-col gap-6 pb-24 lg:pb-8">
+<!-- Context Header & Filters -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="font-headline-md text-headline-md text-on-surface">Reports &amp; Audit Management</h1>
+<p class="text-on-surface-variant font-body-sm text-body-sm">System oversight and validation archive</p>
+</div>
+<div class="flex flex-wrap gap-2">
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px] material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-lowest border border-outline-variant text-body-sm font-body-sm focus:border-primary outline-none min-w-[180px]" placeholder="Filter by date..." type="text"/>
+</div>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px] material-symbols-outlined" data-icon="person">person</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-lowest border border-outline-variant text-body-sm font-body-sm focus:border-primary outline-none min-w-[180px]" placeholder="Filter by user..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 font-body-sm text-body-sm flex items-center gap-2 hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_list">filter_list</span>
+                        Apply Filters
+                    </button>
+</div>
+</div>
+<!-- Tabs Selection -->
+<div class="relative flex border-b border-outline-variant">
+<button class="px-6 py-3 font-table-header text-table-header uppercase text-primary border-b-2 border-primary transition-all" id="tab-reports" onclick="switchTab('reports')">Recent Reports</button>
+<button class="px-6 py-3 font-table-header text-table-header uppercase text-on-surface-variant hover:text-primary transition-all" id="tab-history" onclick="switchTab('history')">Audit History</button>
+</div>
+<!-- Reports Content -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter" id="content-reports">
+<!-- Report Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant hover:border-primary transition-all group cursor-pointer">
+<div class="p-4 border-b border-outline-variant bg-surface-container-low flex justify-between items-start">
+<span class="material-symbols-outlined text-primary text-[32px]" data-icon="picture_as_pdf">picture_as_pdf</span>
+<span class="bg-green-100 text-green-800 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="check_circle">check_circle</span> SUCCESS
+                        </span>
+</div>
+<div class="p-4">
+<h3 class="font-body-md font-bold text-on-surface mb-1 truncate">BOM_Validation_INV5400_290524.pdf</h3>
+<p class="text-on-surface-variant text-body-sm font-body-sm mb-4">Generated: 29/05/2024 14:22</p>
+<div class="flex justify-between items-center">
+<span class="text-label-mono font-label-mono text-[10px] text-outline">1.2 MB | PDF</span>
+<div class="flex gap-2">
+<button class="p-2 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined" data-icon="download">download</span></button>
+<button class="p-2 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined" data-icon="share">share</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Report Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant hover:border-primary transition-all group cursor-pointer">
+<div class="p-4 border-b border-outline-variant bg-surface-container-low flex justify-between items-start">
+<span class="material-symbols-outlined text-primary text-[32px]" data-icon="description">description</span>
+<span class="bg-green-100 text-green-800 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="check_circle">check_circle</span> SUCCESS
+                        </span>
+</div>
+<div class="p-4">
+<h3 class="font-body-md font-bold text-on-surface mb-1 truncate">Comparison_PDM_ERP_5400.xlsx</h3>
+<p class="text-on-surface-variant text-body-sm font-body-sm mb-4">Generated: 29/05/2024 11:05</p>
+<div class="flex justify-between items-center">
+<span class="text-label-mono font-label-mono text-[10px] text-outline">856 KB | XLSX</span>
+<div class="flex gap-2">
+<button class="p-2 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined" data-icon="download">download</span></button>
+<button class="p-2 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined" data-icon="share">share</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento Style Stat Card -->
+<div class="bg-primary-container text-on-primary-container p-6 flex flex-col justify-between border border-primary">
+<div>
+<span class="material-symbols-outlined text-[40px] mb-2 opacity-50" data-icon="analytics">analytics</span>
+<h4 class="font-headline-md text-headline-md">Monthly Integrity</h4>
+<p class="font-body-sm text-body-sm opacity-80">Overall validation success rate for May 2024</p>
+</div>
+<div class="mt-4">
+<div class="text-[32px] font-bold">98.4%</div>
+<div class="w-full bg-primary/20 h-2 mt-2">
+<div class="bg-on-primary-container h-full w-[98%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- History Content (Hidden by default) -->
+<div class="hidden" id="content-history">
+<div class="bg-surface-container-lowest border border-outline-variant">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container text-on-surface border-b border-outline-variant font-table-header text-table-header uppercase">
+<th class="p-table-cell-padding">Timestamp</th>
+<th class="p-table-cell-padding">User</th>
+<th class="p-table-cell-padding">Action</th>
+<th class="p-table-cell-padding">Status</th>
+<th class="p-table-cell-padding text-right">Details</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm">
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors">
+<td class="p-table-cell-padding font-label-mono text-on-surface">29/05/2024 09:15</td>
+<td class="p-table-cell-padding flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-on-secondary-container text-[10px] flex items-center justify-center font-bold">JP</div>
+                                    Juan Pérez
+                                </td>
+<td class="p-table-cell-padding">Validated INV-5400-ASM</td>
+<td class="p-table-cell-padding">
+<span class="text-green-700 font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="check">check</span> PASS
+                                    </span>
+</td>
+<td class="p-table-cell-padding text-right">
+<button class="text-primary font-bold hover:underline">VIEW LOG</button>
+</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors">
+<td class="p-table-cell-padding font-label-mono text-on-surface">29/05/2024 08:30</td>
+<td class="p-table-cell-padding flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-tertiary-fixed text-on-tertiary-fixed text-[10px] flex items-center justify-center font-bold">MG</div>
+                                    Maria González
+                                </td>
+<td class="p-table-cell-padding">Exported Comparison Report</td>
+<td class="p-table-cell-padding">
+<span class="text-secondary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="info">info</span> INFO
+                                    </span>
+</td>
+<td class="p-table-cell-padding text-right">
+<button class="text-primary font-bold hover:underline">VIEW LOG</button>
+</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors">
+<td class="p-table-cell-padding font-label-mono text-on-surface">28/05/2024 16:45</td>
+<td class="p-table-cell-padding flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-on-secondary-container text-[10px] flex items-center justify-center font-bold">JP</div>
+                                    Juan Pérez
+                                </td>
+<td class="p-table-cell-padding">Uploaded INV-5400 Rev.B</td>
+<td class="p-table-cell-padding">
+<span class="text-green-700 font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="check">check</span> SUCCESS
+                                    </span>
+</td>
+<td class="p-table-cell-padding text-right">
+<button class="text-primary font-bold hover:underline">VIEW LOG</button>
+</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors">
+<td class="p-table-cell-padding font-label-mono text-on-surface">28/05/2024 14:12</td>
+<td class="p-table-cell-padding flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-error-container text-on-error-container text-[10px] flex items-center justify-center font-bold">SY</div>
+                                    SYSTEM
+                                </td>
+<td class="p-table-cell-padding">Database Sync (Auto)</td>
+<td class="p-table-cell-padding">
+<span class="text-error font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="error">error</span> FAIL
+                                    </span>
+</td>
+<td class="p-table-cell-padding text-right">
+<button class="text-primary font-bold hover:underline">VIEW LOG</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Visualization Section -->
+<section class="mt-auto pt-8 border-t border-outline-variant">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<div class="bg-surface-container p-6 rounded-lg flex flex-col gap-4">
+<h4 class="font-table-header text-table-header uppercase text-secondary">Validation Velocity</h4>
+<div class="h-32 w-full bg-surface-container-highest flex items-end gap-2 p-2 relative overflow-hidden">
+<!-- Visual placeholder for a bar chart -->
+<div class="flex-1 bg-primary/20 h-[40%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/40 h-[65%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/30 h-[55%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/70 h-[85%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary h-[95%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/50 h-[60%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/80 h-[90%] rounded-t-sm"></div>
+</div>
+</div>
+<div class="bg-surface-container p-6 rounded-lg">
+<h4 class="font-table-header text-table-header uppercase text-secondary">Export Distribution</h4>
+<div class="flex items-center gap-8 mt-4">
+<div class="w-24 h-24 rounded-full border-[12px] border-primary flex items-center justify-center relative">
+<div class="absolute w-full h-full rounded-full border-[12px] border-secondary border-l-transparent border-b-transparent rotate-45"></div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 text-body-sm"><span class="w-3 h-3 bg-primary"></span> 72% PDF Reports</div>
+<div class="flex items-center gap-2 text-body-sm"><span class="w-3 h-3 bg-secondary"></span> 18% Excel Exports</div>
+<div class="flex items-center gap-2 text-body-sm"><span class="w-3 h-3 bg-outline"></span> 10% Other</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="lg:hidden flex justify-around items-center h-16 px-4 pb-safe bg-surface-container-lowest text-primary border-t border-outline-variant shadow-lg fixed bottom-0 w-full z-50 rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-secondary p-2 active:bg-surface-container-high transition-all tap-highlight-transparent active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-sm text-body-sm">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary p-2 active:bg-surface-container-high transition-all tap-highlight-transparent active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-body-sm text-body-sm">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary p-2 active:bg-surface-container-high transition-all tap-highlight-transparent active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-body-sm text-body-sm">BOM</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold bg-secondary-container/20 p-2 rounded-xl transition-all tap-highlight-transparent active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-body-sm text-body-sm">Reports</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary p-2 active:bg-surface-container-high transition-all tap-highlight-transparent active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+<span class="font-body-sm text-body-sm">Admin</span>
+</a>
+</nav>
+</div>
+<script>
+        function switchTab(tab) {
+            const reportTab = document.getElementById('tab-reports');
+            const historyTab = document.getElementById('tab-history');
+            const reportContent = document.getElementById('content-reports');
+            const historyContent = document.getElementById('content-history');
+
+            if (tab === 'reports') {
+                reportTab.classList.add('text-primary', 'border-primary');
+                reportTab.classList.remove('text-on-surface-variant');
+                historyTab.classList.remove('text-primary', 'border-primary');
+                historyTab.classList.add('text-on-surface-variant');
+                
+                reportContent.classList.remove('hidden');
+                reportContent.classList.add('grid');
+                historyContent.classList.add('hidden');
+            } else {
+                historyTab.classList.add('text-primary', 'border-primary');
+                historyTab.classList.remove('text-on-surface-variant');
+                reportTab.classList.remove('text-primary', 'border-primary');
+                reportTab.classList.add('text-on-surface-variant');
+                
+                historyContent.classList.remove('hidden');
+                reportContent.classList.add('hidden');
+                reportContent.classList.remove('grid');
+            }
+        }
+    </script>
+</body></html>

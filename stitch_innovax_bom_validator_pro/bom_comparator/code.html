@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#727782",
+                        "surface-container-low": "#f3f4f6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#743500",
+                        "secondary": "#50616c",
+                        "tertiary-container": "#8e4302",
+                        "tertiary": "#6b3000",
+                        "surface-container-high": "#e7e8ea",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#f0f1f3",
+                        "on-secondary-fixed-variant": "#384953",
+                        "inverse-surface": "#2e3132",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#546570",
+                        "on-background": "#191c1e",
+                        "on-primary-container": "#b1d1ff",
+                        "on-primary-fixed": "#001c38",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#d3e4ff",
+                        "on-surface-variant": "#414750",
+                        "surface-tint": "#1260a5",
+                        "surface-dim": "#d9dadc",
+                        "tertiary-fixed-dim": "#ffb68a",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#edeef0",
+                        "on-surface": "#191c1e",
+                        "surface-bright": "#f8f9fb",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#004881",
+                        "primary": "#004277",
+                        "surface-variant": "#e1e2e4",
+                        "secondary-fixed-dim": "#b7c9d6",
+                        "on-secondary-fixed": "#0c1d27",
+                        "primary-fixed-dim": "#a2c9ff",
+                        "background": "#f8f9fb",
+                        "surface-container-highest": "#e1e2e4",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#d3e5f2",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#321300",
+                        "tertiary-fixed": "#ffdbc8",
+                        "secondary-container": "#d0e2ef",
+                        "outline-variant": "#c1c7d2",
+                        "on-tertiary-container": "#ffc29d",
+                        "surface": "#f8f9fb",
+                        "primary-container": "#005a9e",
+                        "inverse-primary": "#a2c9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "table-cell-padding": "8px 12px",
+                        "gutter": "16px",
+                        "margin-page": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "table-header": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-mono": ["JetBrains Mono"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "table-header": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-mono": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .diff-stripes {
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(0, 0, 0, 0.02) 10px,
+                rgba(0, 0, 0, 0.02) 20px
+            );
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md text-body-md overflow-x-hidden pb-20">
+<!-- TopAppBar -->
+<header class="bg-surface-container-lowest text-primary docked full-width top-0 border-b border-outline-variant flex justify-between items-center px-margin-page h-16 w-full sticky z-40">
+<div class="flex items-center gap-base">
+<button class="material-symbols-outlined p-2 hover:bg-surface-container-high transition-colors active:opacity-80 scale-95 duration-100" data-icon="menu">menu</button>
+<h1 class="font-headline-md text-headline-md font-black tracking-tight uppercase">BOM Comparator</h1>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden border border-outline-variant">
+<img alt="User Profile Photo" class="w-full h-full object-cover" data-alt="A professional headshot of a senior manufacturing engineer in a clean, high-tech industrial office environment. The lighting is crisp and natural, highlighting a focused yet approachable expression. The background is slightly blurred, showing engineering diagrams and digital screens with a sophisticated color palette of whites, grays, and deep industrial blues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVQ_7OkJsAfyOKpR_r2QVtyEodSaXPP1uXT82KmeceWbu2W_muwkprG7-NgXkiKwxJQpSEbSQqyJBI79QDX9_sMKnimyJSES-6JQcEz8qEYeHSsuj4uoKxmt1xJ0BuVya1xPRTcqFL2AG9Db7lDgL16HGkks41AbCNiqMaasEdhg3x1yvFtdOBKqQNq28FlHGLMjCrNZP4TITiVgNQQsxfUig3sPaM4WPpzmq4JD258lOt5ob5F2OGYILznwlFv6UgN4GVnOFH99-2"/>
+</div>
+</header>
+<main class="max-w-full px-4 py-4 space-y-4">
+<!-- Selection Bar -->
+<section class="bg-surface-container-low border border-outline-variant rounded-lg p-3 space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-secondary uppercase">Source Comparison</span>
+<span class="font-label-mono text-label-mono font-bold text-primary">INV-5400-ASM</span>
+</div>
+<div class="grid grid-cols-7 items-center gap-2">
+<div class="col-span-3 bg-surface-container-highest p-2 border border-outline-variant rounded flex flex-col">
+<span class="text-[10px] uppercase font-bold text-outline">Source A</span>
+<span class="font-bold text-primary">PDM</span>
+</div>
+<div class="col-span-1 flex justify-center">
+<span class="material-symbols-outlined text-outline">compare_arrows</span>
+</div>
+<div class="col-span-3 bg-surface-container-highest p-2 border border-outline-variant rounded flex flex-col">
+<span class="text-[10px] uppercase font-bold text-outline">Source B</span>
+<span class="font-bold text-primary">ERP</span>
+</div>
+</div>
+</section>
+<!-- Comparison Summary -->
+<section class="grid grid-cols-3 gap-2">
+<div class="bg-surface-container-lowest border-b-2 border-error p-3 flex flex-col items-center">
+<span class="text-display-lg font-black text-error">3</span>
+<span class="font-table-header text-table-header uppercase text-outline">Missing</span>
+</div>
+<div class="bg-surface-container-lowest border-b-2 border-secondary p-3 flex flex-col items-center">
+<span class="text-display-lg font-black text-secondary">2</span>
+<span class="font-table-header text-table-header uppercase text-outline">Extra</span>
+</div>
+<div class="bg-surface-container-lowest border-b-2 border-tertiary p-3 flex flex-col items-center">
+<span class="text-display-lg font-black text-tertiary">1</span>
+<span class="font-table-header text-table-header uppercase text-outline">Changed</span>
+</div>
+</section>
+<!-- Filters -->
+<section class="flex items-center justify-between py-2 border-b border-outline-variant">
+<h2 class="font-table-header text-table-header uppercase text-outline">Differences List</h2>
+<label class="flex items-center gap-2 cursor-pointer">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Differences Only</span>
+<div class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</div>
+</label>
+</section>
+<!-- Diff List -->
+<div class="space-y-2">
+<!-- Row: PASS -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded flex flex-col p-3 transition-all active:scale-[0.98]">
+<div class="flex justify-between items-start mb-2">
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono text-primary font-bold">INV-5401</span>
+<span class="text-body-sm text-outline">Bracket, Main Frame Support</span>
+</div>
+<div class="flex items-center gap-1 text-green-700 bg-green-50 px-2 py-0.5 rounded border border-green-200">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-[10px] font-bold uppercase">Pass</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 text-[11px] font-label-mono border-t border-outline-variant/30 pt-2">
+<div class="flex justify-between"><span class="text-outline">Qty PDM:</span> <span class="font-bold">12</span></div>
+<div class="flex justify-between"><span class="text-outline">Qty ERP:</span> <span class="font-bold">12</span></div>
+</div>
+</div>
+<!-- Row: MISSING (Red) -->
+<div class="bg-error-container/20 border-l-4 border-l-error border border-outline-variant rounded flex flex-col p-3 relative overflow-hidden active:scale-[0.98] transition-all">
+<div class="absolute inset-0 diff-stripes pointer-events-none opacity-20"></div>
+<div class="flex justify-between items-start mb-2 relative z-10">
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono text-error font-bold">INV-5408</span>
+<span class="text-body-sm text-on-error-container">Gasket, High-Temp Silicone</span>
+</div>
+<div class="flex items-center gap-1 text-error bg-error-container px-2 py-0.5 rounded border border-error">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">error</span>
+<span class="text-[10px] font-bold uppercase">Missing in ERP</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 text-[11px] font-label-mono border-t border-error/20 pt-2 relative z-10">
+<div class="flex justify-between"><span class="text-outline">Qty PDM:</span> <span class="font-bold">2</span></div>
+<div class="flex justify-between"><span class="text-outline">Qty ERP:</span> <span class="font-bold text-error">NULL</span></div>
+</div>
+</div>
+<!-- Row: MISMATCH (Orange) -->
+<div class="bg-tertiary-fixed/20 border-l-4 border-l-tertiary border border-outline-variant rounded flex flex-col p-3 active:scale-[0.98] transition-all">
+<div class="flex justify-between items-start mb-2">
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono text-tertiary font-bold">INV-5403</span>
+<span class="text-body-sm text-outline italic">Description Mismatch Detected</span>
+</div>
+<div class="flex items-center gap-1 text-tertiary bg-tertiary-fixed px-2 py-0.5 rounded border border-tertiary-container">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="text-[10px] font-bold uppercase">Mismatch</span>
+</div>
+</div>
+<div class="space-y-1 text-[11px] font-label-mono border-t border-tertiary/20 pt-2">
+<div class="flex flex-col">
+<span class="text-outline uppercase text-[9px] font-bold">PDM Value</span>
+<span class="font-bold text-on-surface">Bolt, M8x1.25, Hex, Grade 8.8</span>
+</div>
+<div class="flex flex-col mt-1">
+<span class="text-tertiary uppercase text-[9px] font-bold">ERP Value</span>
+<span class="font-bold text-tertiary bg-tertiary-fixed/30 px-1">Bolt, M8x1.25, Hex Head</span>
+</div>
+</div>
+</div>
+<!-- Extra items placeholder -->
+<div class="flex justify-center py-4">
+<button class="text-primary font-table-header text-table-header uppercase flex items-center gap-1 hover:underline">
+                    View 5 more differences <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest border-t border-outline-variant shadow-lg lg:hidden flex justify-around items-center h-16 px-4 pb-safe">
+<button class="flex flex-col items-center justify-center text-secondary p-2 tap-highlight-transparent active:scale-90 transition-all">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-sm text-body-sm">Dashboard</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary font-bold bg-secondary-container/20 p-2 rounded-xl tap-highlight-transparent active:scale-90 transition-all">
+<span class="material-symbols-outlined" data-icon="search" style="font-variation-settings: 'FILL' 1;">search</span>
+<span class="font-body-sm text-body-sm">Search</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary p-2 tap-highlight-transparent active:scale-90 transition-all">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-body-sm text-body-sm">BOM</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary p-2 tap-highlight-transparent active:scale-90 transition-all">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-body-sm text-body-sm">Reports</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary p-2 tap-highlight-transparent active:scale-90 transition-all">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+<span class="font-body-sm text-body-sm">Admin</span>
+</button>
+</nav>
+<script>
+        // Simple micro-interaction for toggle
+        document.querySelector('input[type="checkbox"]').addEventListener('change', function(e) {
+            const rows = document.querySelectorAll('.space-y-2 > div');
+            rows.forEach(row => {
+                if (e.target.checked) {
+                    if (row.innerHTML.includes('Pass')) {
+                        row.classList.add('hidden');
+                    }
+                } else {
+                    row.classList.remove('hidden');
+                }
+            });
+        });
+
+        // Initialize view by hiding "Pass" if checkbox is default checked
+        window.addEventListener('DOMContentLoaded', () => {
+            const checkbox = document.querySelector('input[type="checkbox"]');
+            if (checkbox.checked) {
+                const passRow = Array.from(document.querySelectorAll('.space-y-2 > div')).find(r => r.innerHTML.includes('Pass'));
+                if (passRow) passRow.classList.add('hidden');
+            }
+        });
+    </script>
+</body></html>
