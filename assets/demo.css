@@ -4,6 +4,8 @@ html {
 
 body {
   min-width: 320px;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .demo-toast-stack {
@@ -89,10 +91,11 @@ body {
 
 .demo-install {
   position: fixed;
-  right: 16px;
-  bottom: 16px;
+  right: 24px;
+  bottom: 24px;
   z-index: 9997;
   display: none;
+  border-radius: 999px;
   box-shadow: 0 14px 32px rgba(15, 23, 42, 0.22);
 }
 
@@ -115,9 +118,7 @@ body {
   body > nav,
   body > main,
   body > div:not(.demo-toast-stack):not(.demo-modal-backdrop) {
-    max-width: 1480px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: none;
     width: 100%;
   }
 
@@ -127,6 +128,26 @@ body {
 
   main {
     min-height: calc(100vh - 96px);
+    width: 100%;
+  }
+
+  main > .max-w-\[1440px\] {
+    max-width: none !important;
+  }
+
+  main .grid {
+    align-items: stretch;
+  }
+
+  .demo-install {
+    right: 32px;
+    bottom: 32px;
+  }
+
+  body > div > aside + main,
+  body > main {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
   }
 
   table {
@@ -135,29 +156,63 @@ body {
 }
 
 @media (max-width: 640px) {
+  body {
+    background: #f8f9fb !important;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
   header h1 {
-    max-width: 230px;
-    font-size: 24px !important;
-    line-height: 1.05 !important;
+    max-width: min(238px, calc(100vw - 132px));
+    font-size: 22px !important;
+    line-height: 1.02 !important;
     white-space: normal;
   }
 
   header {
     min-height: 64px;
     height: auto !important;
+    padding-top: max(10px, env(safe-area-inset-top)) !important;
+    padding-bottom: 10px !important;
+    align-items: flex-start !important;
+    position: sticky;
+    top: 0;
   }
 
   .demo-toast-stack {
     right: 10px;
-    bottom: 82px;
+    bottom: calc(82px + env(safe-area-inset-bottom));
     width: calc(100vw - 20px);
   }
 
   .demo-install {
-    top: 76px;
-    right: 16px;
-    bottom: auto;
+    right: 14px;
+    bottom: calc(78px + env(safe-area-inset-bottom));
     padding: 8px 10px;
     font-size: 11px;
+  }
+
+  footer {
+    display: none !important;
+  }
+
+  main {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  table {
+    min-width: 680px;
+  }
+
+  .industrial-border,
+  .demo-modal,
+  .demo-toast {
+    border-radius: 8px;
+  }
+
+  nav.fixed.bottom-0,
+  nav[class*="fixed bottom-0"] {
+    padding-bottom: max(8px, env(safe-area-inset-bottom)) !important;
+    min-height: calc(64px + env(safe-area-inset-bottom));
   }
 }

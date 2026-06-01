@@ -1,7 +1,8 @@
-const CACHE_NAME = 'innovax-bom-validator-v2';
+const CACHE_NAME = 'innovax-bom-validator-v3';
 const CORE_ASSETS = [
   '/',
   '/index.html',
+  '/offline.html',
   '/assets/demo.css',
   '/assets/demo.js',
   '/assets/icon.svg',
@@ -29,6 +30,12 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request).catch(() => caches.match(event.request).then((cached) => cached || caches.match('/offline.html') || caches.match('/')))
+    );
+    return;
+  }
   event.respondWith(
     fetch(event.request)
       .then((response) => {

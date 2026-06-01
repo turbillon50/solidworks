@@ -5,15 +5,35 @@
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
   "background_color": "#f8f9fb",
   "theme_color": "#004277",
   "orientation": "any",
+  "id": "/?pwa=innovax-bom-validator",
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "categories": ["business", "productivity", "utilities"],
   "icons": [
     {
       "src": "/assets/icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/stitch_innovax_bom_validator_pro/executive_dashboard/screen.png",
+      "sizes": "1440x1000",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/stitch_innovax_bom_validator_pro/bom_explorer/screen.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow"
     }
   ],
   "shortcuts": [

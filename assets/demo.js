@@ -186,6 +186,10 @@
       deferredPrompt = null;
       install.style.display = 'none';
     });
+    window.addEventListener('appinstalled', () => {
+      install.style.display = 'none';
+      toast('PWA installed', 'Innovax is ready from your home screen.');
+    });
   }
 
   function markCurrentRoute() {
