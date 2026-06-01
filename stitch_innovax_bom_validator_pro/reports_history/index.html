@@ -124,7 +124,12 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
+  
+<link rel="manifest" href="/manifest.webmanifest"/>
+<meta name="theme-color" content="#004277"/>
+<link rel="apple-touch-icon" href="/assets/icon.svg"/>
+<link rel="stylesheet" href="/assets/demo.css"/>
+</head>
 <body class="bg-background text-on-background font-body-md overflow-hidden h-screen flex">
 <!-- Navigation Drawer (Desktop) -->
 <aside class="hidden lg:flex flex-col gap-base py-4 bg-surface-container border-r border-outline-variant w-[240px] h-full transition-all duration-200 ease-in-out">
@@ -433,4 +438,6 @@
             }
         }
     </script>
+
+<script src="/assets/demo.js" defer></script>
 </body></html>
